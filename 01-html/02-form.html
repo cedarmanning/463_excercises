@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Exercise 02 - Form</title>
+  </head>
+  
+  <script>
+      function calculate() {
+          let balance = Number(document.querySelectorAll('input[type="number"]')[0].value);
+          let contribution = Number(document.querySelectorAll('input[type="number"]')[1].value);
+          let rate = Number(document.querySelectorAll('input[type="number"]')[2].value) / 100;
+          let age = Number(document.querySelectorAll('input[type="number"]')[3].value);
+          let retirement = Number(document.querySelectorAll('input[type="number"]')[4].value);
+
+          for (let i = age; i < retirement; i++) {
+              balance = balance * (1 + rate) + contribution;
+          }
+
+          alert("Your Roth IRA balance at retirement will be $" + balance.toFixed(2));
+      }
+    </script>
+  <body>
+    <main>
+          <h2>Roth IRA Calculator</h2>
+    <p>Balance ($)</p>
+    <input type="number">
+
+    <p>Annual contribution (4)</p>
+    <input type="number">
+
+    <p>Maximize contributions?</p>
+    <input type="radio" name="maximize"> Yes
+    <input type="radio" name="maximize"> No
+
+    <p>Expected rate of return (5)</p>
+    <input type="number">
+
+    <p>Current age</p>
+    <input type="number">
+
+    <p>Retirement age</p>
+    <input type="number">
+
+    <p>Marginal tax rate (%)</p>
+    <input type="number">
+
+    <p>
+        <button onclick="calculate()">Calculate</button>
+        <button type="reset">Reset</button>
+    </p>
+
+    <p>
+        This exercise is a simplified version of the Roth IRA Calculator at
+        <a href="https://www.calculator.net/roth-ira-calculator.html">Calculator.net </a>
+    </p>
+
+    </main>
+  </body>
+</html>
