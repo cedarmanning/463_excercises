@@ -7,12 +7,72 @@
     <title>CSS Exercise 02 - Form</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+  <script>
+      function calculate() {
+          let balance = Number(document.querySelectorAll('input[type="number"]')[0].value);
+          let contribution = Number(document.querySelectorAll('input[type="number"]')[1].value);
+          let rate = Number(document.querySelectorAll('input[type="number"]')[2].value) / 100;
+          let age = Number(document.querySelectorAll('input[type="number"]')[3].value);
+          let retirement = Number(document.querySelectorAll('input[type="number"]')[4].value);
+
+          for (let i = age; i < retirement; i++) {
+              balance = balance * (1 + rate) + contribution;
+          }
+
+          alert("Your Roth IRA balance at retirement will be $" + balance.toFixed(2));
+      }
+    </script>
   <body>
     <main>
-      <!-- Start with the code from the HTML folder.
-      - Make sure to fix any issues in your HTML code.
-      - Delete all mentions of <br>s and style the line breaks with CSS. 
-      - Add classes to style the elements on the page. -->
+      <h2>Roth IRA Calculator</h2>
+
+      <div class="row">
+        <label for="balance">Balance ($)</label>
+        <input id="balance" type="number">
+      </div>
+
+      <div class="row">
+        <label for="contribution">Annual contribution ($)</label>
+        <input id="contribution" type="number">
+      </div>
+
+      <div class="maximize">
+        <p>Maximize contribution?</p>
+        <div class="radios">
+          <label><input type="radio" name="maximize"> Yes</label>
+          <label><input type="radio" name="maximize"> No</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="rate">Expected rate of return (%)</label>
+        <input id="rate" type="number">
+      </div>
+
+      <div class="row">
+        <label for="age">Current age</label>
+        <input id="age" type="number">
+      </div>
+
+      <div class="row">
+        <label for="retirement">Retirement age</label>
+        <input id="retirement" type="number">
+      </div>
+
+      <div class="row">
+        <label for="tax">Marginal tax rate (%)</label>
+        <input id="tax" type="number">
+      </div>
+
+      <div class="buttons">
+        <button class="primary" onclick="calculate()">Calculate</button>
+        <button type="reset">Reset</button>
+      </div>
+
+      <p class="note">
+        This exercise is a simplified version of the Roth IRA Calculator at
+        <a href="https://www.calculator.net/roth-ira-calculator.html">Calculator.net</a>
+      </p>
     </main>
   </body>
 </html>
